@@ -1,0 +1,593 @@
+/* montserrat-regular - latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/montserrat-v18-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/montserrat-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/montserrat-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/montserrat-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/montserrat-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/montserrat-v18-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
+  }
+  /* montserrat-600 - latin */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/montserrat-v18-latin-600.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/montserrat-v18-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/montserrat-v18-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/montserrat-v18-latin-600.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/montserrat-v18-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/montserrat-v18-latin-600.svg#Montserrat') format('svg'); /* Legacy iOS */
+  }
+  /* montserrat-800 - latin */
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/montserrat-v18-latin-800.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/montserrat-v18-latin-800.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/montserrat-v18-latin-800.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/montserrat-v18-latin-800.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/montserrat-v18-latin-800.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/montserrat-v18-latin-800.svg#Montserrat') format('svg'); /* Legacy iOS */
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-size: 20px;
+    max-width: 1400px;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    margin: auto;
+    color: #1F2041;
+    font-family: Montserrat-l, sans-serif;
+    font-weight: normal;
+}
+
+.wraped_loaded{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .container{
+    display: block;
+    position: relative;
+    
+    height: 100%;
+    width: 100%;
+    float: left;
+  }
+
+/* ===== HEADER ===== */
+
+header{
+    position: fixed;
+    display: contents;
+    height: 140px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-top{
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.navigation{
+    position: relative;
+    display: block;
+    width: 100%;
+    justify-content: start;
+    
+    float: left;
+}
+
+.colored{
+  background-color: #2980B9;
+}
+
+/* =============== MENU DEPLOYABLE =============== */
+
+.droplink {
+    background-color:  #2980B9;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    /*min-width: 160px;*/
+    float: left;
+    
+  }
+   
+  .droplink:hover, .dropbtn:focus {
+    background-color: #3498DB;
+  }
+  
+  .dropdown {
+    position: relative;
+    /*display: inline-block;*/
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    left: 260px;
+    top: 40px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-transform: uppercase; 
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown a:hover {background-color: #ddd;}
+  
+  .show {display: block;}
+
+  /*========== main ========= */
+
+  main{
+    width: 100%;
+    height: auto;
+    min-height: 570px;
+    padding: 20px;
+    text-align: left;
+    padding: 2em 20px;
+}
+
+main h4{
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.main-link{
+    text-decoration: none;
+    color: #1F2041;
+    }
+
+.main-link:hover{
+    font-weight: bold;
+}    
+
+ol{
+    list-style-position: inside;
+    }
+
+    li{
+        line-height: 24px;
+    }
+
+li[type ="a"]{
+    padding-left: 50px;
+}
+
+.exercise{
+    padding-left: 40px;
+    margin: 20px 0;
+}
+
+/*========== FOOTER ========= */
+
+footer{
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    height: 80px;
+    padding: 30px;
+    color: #fff;
+}
+
+
+
+/* =============== Formulario =============== */
+
+#user_form{
+    position: relative;
+    background-color: #fff;
+    width: 500px;
+    height: 500px;
+    
+    float: none;
+    }
+
+.form{
+    position: relative;
+    height:100%;
+    width: 100%;
+    border-color: #2980B9;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.summit_form{
+    border: none;
+}
+
+.contact{
+    height: 50px;
+    border-width: 2px;
+    border-bottom-color: #2980B9;
+}
+
+input, select, textarea{
+    height: 35px;
+    background-color: #fff;
+    padding: 5px;
+    border-style: solid;
+    border-color: #2980B9;
+    border-width: 2px;
+    border-radius: 2px;
+    color: #aaa;
+    vertical-align: middle;
+}
+
+input:hover, select:hover, textarea:hover{
+    color: #1F2041;
+}
+
+input:focus, select:focus, textarea:focus{
+    color: #1F2041;
+    outline: none;
+    border-width: 3px;
+   border-radius: 2px;
+}
+
+.half{
+    width: 210px;
+}
+
+.form_row, .text{
+    width: 100%;
+    display: flex;
+   justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+
+.text{
+    
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+}
+.colored_row{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+
+.colored_row>p{
+    width: 100%;
+    height: 50px;
+    background-color: #2980B9;
+    font-size: 15px;
+    padding-left: 5px;
+    line-height: 50px;
+}
+
+textarea{
+    width: 100%;
+    height: 100px;
+    text-align: left;       
+}
+
+.form_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #2980B9;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.form_footer{
+    position: absolute;
+    bottom: 20px;
+    height: 30px;
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+input[type="reset"],input[type="submit"] {
+    height: 35px;
+    border-color: #2980B9;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25px;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="reset"]{
+    width: 80px;
+    color: #2980B9;
+    margin-right: 20px;
+}
+
+input[type="submit"]{
+    background-color: #2980B9;
+    width: auto;
+    color:#fff;
+    
+}
+
+input[name="caprtcha"]{
+    width: 100%;
+}
+
+.captcha{
+    width: 80%;
+}
+
+.check{
+    display: inline-block;
+    width: 20%;
+    height: 35px;
+    text-align: center;
+    background-color: #2980B9;
+    font-weight: bold;
+    color: #fff;
+    /*padding: 8px;*/
+   line-height: 35px;
+}
+
+/* =============== CV =============== */
+
+.cv{
+    margin-right: 20px;
+}
+
+.cv>form{
+    padding: 20px;
+}
+
+.cv_row{
+    width: 100%;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.cv_row>input[type="text"], .cv_row>input[type="email"], .cv_row>input[type="tel"]{
+    width: 400px;
+    height: 40px;
+}
+
+.cv_row>input, .cv_row>select{
+    display: block;
+    float: left;
+    margin: 10px;
+    font-size: 0.8em;
+}
+
+.cv_row>input[type="checkbox"]{
+    display: inline;
+    width: 20px;
+    height: 20px;
+    margin-left: 40px;
+}
+.cv_row>input[type="radio"]{
+    display: inline;
+    float: left;
+    width: 20px;
+    margin-left: 40px;
+}
+
+.input[type="radio"]::after{
+    display: inline;
+}
+
+.fecha{
+    margin-left: 60px;
+}
+
+.nivel{
+    margin-left: 20px;
+   }
+
+.lang{
+    width: 60px;
+}
+
+.educ{
+    width: 300px;
+}
+
+.block{
+    padding: 10px;
+    margin-top: 20px;
+    border-top: solid;
+    border-color: #2980B9;
+    border-width: 2px; 
+}
+
+/* =============== JUEGO (4A) =============== */
+
+.game{
+margin-right: 20px;
+display: flex;
+width: 100%;
+justify-content: space-evenly;
+align-items: flex-start;
+height: 50vh;
+padding-right: 20px;
+max-height: 500px;
+}
+
+
+.game_img{
+    width: 40%;
+    height: max-content;
+    max-height: 500px;
+    float: left;
+    height: 100%;
+}
+
+.game_img>img{
+    height: 100%;
+    max-height: 500px;
+}
+
+.game_form{
+    position: relative;
+    display: block;
+    width: 50%;
+    float: right;
+    height: 100%;
+    max-height: 500px;
+}
+
+.game_form>form{
+    text-align: center;
+    padding: 20px;
+    border-color: #262262;
+    
+}
+
+#option{
+    width: 60%;
+    height: 50px;
+    margin-top: 20px;
+    font-size: large;
+}
+
+/* =============== ejercicio 5 =============== */
+
+.main_row{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+}
+
+.main_row>img{
+    margin: 10px;
+}
+
+.main_row>a{
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+
+
+.button{
+    height: 40px;
+    width: 500px;
+    border-color: #2980B9;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 25px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: auto;
+    margin: 20px auto;
+    
+}
+.button>a{
+    text-transform: uppercase;
+    line-height: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #2980B9;
+   
+}
+
+#a, #b,#c,#d{
+    padding: 10px;
+    margin-top: 20px;
+    border-top: solid;
+    border-color: #2980B9;
+    border-width: 2px;
+}
+
+/* ========== CV generado ========== */
+
+.tit{
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cv_ok{
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    float: left;
+    min-height: 500px;
+}
+aside{
+    width: 25%;
+    background-color: #2980B9;
+    padding: 20px;
+    color: #fff;
+}
+
+.general{
+    display: block;
+    width: 75%;
+    float: left;
+    padding: 20px;
+}
+
+.cv_lang{
+    display: block;
+    margin-left: 40px;
+}
+
+

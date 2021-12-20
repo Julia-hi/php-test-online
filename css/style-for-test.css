@@ -1,0 +1,67 @@
+/* estilos para test online  */
+
+main{
+    height: max-content;
+}
+
+
+.content{
+    width: 100%;
+    height: max-content;
+}
+
+.section_1, .section_2{
+    display: block;
+    width: 50%;
+    float: left;
+    height: max-content;
+    
+    margin: auto;
+    padding: 20px;
+}
+
+.section_2{
+    object-fit: cover;
+    
+}
+.section_2 img{
+    display: block;
+    width: 90%;
+    
+    align-self: center;
+    float: right;
+}
+
+.test-form, .section_1_create{
+    margin: 10px 0;
+    height: max-content;
+    padding: 20px;
+}
+
+
+input[type="submit"], .button{
+    
+    height: 50px;
+    font-size: 1.2em;
+    align-self: center;
+    margin: 40px auto 0 auto;
+    display: block;
+    border-radius: 5px;
+    border: none;
+}
+
+.button {
+    padding: 10px;
+    background-color: #2980B9;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: none;
+    color: #fff;
+    margin: 20px auto;
+   font-weight: bold;
+}
+
+input[type="text"], input[type="password"]{
+    width: 60%;
+}
+

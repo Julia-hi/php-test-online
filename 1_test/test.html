@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+
+<head>
+    <title>Tarea online U2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-for-test.css">
+</head>
+
+<body>
+    <div class="wraped_loaded">
+        <header>
+            <div class="container">
+                <div class="header-top">
+                    <div>
+                        <h3>Desarrollo web en entorno servidor</h3>
+                    </div>
+                    <div>
+                        <h3>Tarea online Unidad 2</h3>
+                        <h3>Alumna: Yulia Ogarkova, 2ºDAW IES Trassierra</h3>
+                    </div>
+                </div>
+
+                <div class="navigation colored">
+                    <nav><a class="droplink" href="../inicio.html">inicio</a>
+                        <a class="droplink" href="realizar_test.php">Realizar test</a>
+                        <a class="droplink" href="administrar.php">Administrar</a>
+                        <a class="droplink" href="cerrar_sesion.php">Cerrar sesion</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <div class="content">
+                    <div class="section_1">
+                        <h4>Evalua sus conocimientos sobre PHP!</h4><br />
+                        <p>Para realizar un test sobre conocimientos PHP tiene que identificarse.</p>
+                        <h4>Información para profesor:</h4><br />
+                            <p>Cuenta de usuario: "jose1", contraseña "abcdef"</p>
+                            <p>Cuenta de administrador: "admin", contraseña "123456"</p>
+                        <form class="test-form form" action="iniciar_sesion.php" method="post">
+                            <div class="form_row">Nombre: <input type="text" name="user-name" required="required"></div>
+                            <div class="form_row"> Contraseña: <input type="password" name="pass" required="required"></div>
+                            <div class="form_row"><input type="reset" value="Limpiar">
+                            <input type="submit" value="Iniciar sesión"></div>
+                        </form>
+                        <div class="section_1_create">
+                            <h4>¿Aún no tienes cuenta?</h4>
+                            <form class="test-form form" action='crear_user.php' method='post'>
+                                
+                                <div class="form_row">Username: <input type='text' name='username' required="required" /></div>
+                                <div class="form_row">Password: <input type='password' name='password' required="required" /></div>
+                                <div class="form_row"><input type='reset' value='Limpiar' />
+                                <input type='submit' value='Crear cuenta' /></div>
+                                
+                              </form>
+                            
+                        </div>
+                    </div>
+                    <div class="section_2">
+                        <img src="../img/php_lover.png"
+                            alt="foto de hombre delante de ordenador con una taza con texto PHP">
+                    </div>
+                </div>
+
+
+
+            </div>
+        </main>
+        <footer class="colored">
+
+            <p>Copyright &copy; Yulia Ogarkova, 2ºDAW IES Trassierra 2021/2022</p>
+        </footer>
+    </div>
+    <script src="scripts/header.js"></script>
+
+</body>
+
+</html>
