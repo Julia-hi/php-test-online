@@ -101,8 +101,9 @@ echo ("No tienes intentos.");
 <form action="result_test.php" method='POST'>
 <h3>Cada pregunta tiene una o más respuestas correctas.</h3>
 <?php
+
 //bucle para recorrer preguntas
-for($i=0; $i<$num_filas;$i++){ 
+for($i=0; $i<$num_filas; $i++){ 
     $id_preg= $res[$i]['id'];
     
     $opcion = ($res)[$i]['opcion']; //opcion de pregunta, una  - para formulario tipo radio, multi para formulario tipo chackbox?>
@@ -127,8 +128,8 @@ for($i=0; $i<$num_filas;$i++){
 
 
 <?php if($opcion=="una"){ $type="radio";?> 
-    <br/><input type="radio" id="<?php echo($id_resp) ?>" name="a<?php echo($id_preg) ?>" value = "<?php echo($resp_valor) ?>"> <?php echo($resp_text) ?>
-    <?php }else{ ?><br/><input type="checkbox" id="<?php echo($id_resp) ?>" name="<?php echo($id_preg) ?>[]" value = "<?php echo($resp_valor) ?>"> <?php echo($resp_text);}?>
+    <br/><input type="radio" id="<?php echo($id_resp) ?>" name="a[<?php echo ($id_preg)?>]" value = "<?php echo($resp_valor) ?>"> <?php echo($resp_text) ?>
+    <?php }else{ ?><br/><input type="checkbox" id="<?php echo($id_resp) ?>" name="b[<?php echo ($id_preg)?>][<?php echo($id_resp) ?>]" value = "<?php echo($resp_valor) ?>"> <?php echo($resp_text);}?>
      
 
 <?php } //fin del bucle - respuestas ?>

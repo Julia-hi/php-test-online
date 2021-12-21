@@ -77,12 +77,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     for($i = 0; $i<$num_filas; $i++){
         $opcion = ($res)[$i]['opcion']; // recoge opcion de cada pregunta
         $id_preg = ($res)[$i]['id']; // recoge id de cada pregunta
-         
-       $dato = ($res)[$i]['id']; //recoge id de respuesta tipo radio
-       // $respuestas = $_POST['key'];
+    
+
+       
              
    
-     //echo ($_POST['1']);
+    
         //consulta de tabla respuestas
        $num_resp = 'SELECT * FROM respuestas WHERE id_pregunta='.$id_preg; //numero de respuestas de una pregunta
         $sth1 = $dbh->prepare($num_resp);
@@ -94,9 +94,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $resp_text = ($res1)[$j]['texto_res'];
         $id_resp= ($res1)[$j]['id'];
         $resp_valor = ($res1)[$j]['valor'];
-       $consulta = $_POST."['".$j."']";
-        echo gettype ($consulta);
-       echo (isset($consulta));
+       //$consulta = $_POST."['".$j."']";
+       if($opcion =="una"){
+           
+        $respuestas = $_POST['a'];
+        
+    }
+    
         
         /*if($_POST[$i] ==''){
             echo("no");
@@ -108,12 +112,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         } //fin del bucle para recorrer respuestas
 
-    
+        
+       // echo(count($respuestas));
 
 
     
 }//fin del bucle de resultados
-
+print_r($respuestas);
 }else{
 echo("Ha producido un error.");
 }
