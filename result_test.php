@@ -7,12 +7,16 @@
     <title>Tarea online U2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css">
-    <!--<link rel="stylesheet" href="../css/style-for-test.css">-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" href="css/style-for-test.css">-->
 </head>
 <?php 
 session_start();
 require_once('connect_db.php');
+
+if(isset ($_SESSION['usuario'])){
+
+
 $login = $_SESSION['usuario'];
 
 //consulta para recoger los datos del usuario
@@ -22,6 +26,7 @@ $sth2->execute(array($login));
 $res2 = $sth2->fetch();
 $id_user = $res2['id'];
 $nombre = $res2['nombre'];
+$apellidos = $res2['apellidos'];
 
 //consulta para recoger los datos de la tabla preguntas
 $num_preg = 'SELECT * FROM preguntas';
@@ -42,15 +47,14 @@ $num_filas = count($res); //numero total de preguntas (de filas)
                         <h3>Desarrollo web en entorno servidor</h3>
                     </div>
                     <div>
-                        <h3>Tarea online Unidad 2</h3>
+                        <h3>Test online PHP</h3>
                         <h3>Alumna: Yulia Ogarkova, 2ºDAW IES Trassierra</h3>
                     </div>
                 </div>
 
                 <div class="navigation colored">
-                    <nav><a class="droplink" href="../inicio.html">inicio</a>
-                        <a class="droplink" href="test.html">Crear usuario</a>
-                        <a class="droplink" href="test.html">Iniciar secion</a>
+                    <nav><a class="droplink" href="index.html">inicio</a>
+                        
                         <a class="droplink" href="cerrar_sesion.php">Cerrar sesion</a>
                     </nav>
                 </div>
@@ -59,9 +63,12 @@ $num_filas = count($res); //numero total de preguntas (de filas)
        
         <main>
             <div class="container">
+                <p>Usuario: <?php echo($nombre." ".$apellidos) ?> con id: <?php echo($id_user) ?> </p>
+                <p>Realizado intento: </p>
+                <p>Resultado: </p>
 <?php 
 // funcion para validación de los datos
-function filter($data){
+function filter($data){ 
     $data = trim($data); // Elimina espacios antes y después de los datos
     $data = stripslashes($data); // Elimina backslashes \
     $data = htmlspecialchars($data); // Traduce caracteres especiales en entidades HTML
@@ -78,11 +85,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $opcion = ($res)[$i]['opcion']; // recoge opcion de cada pregunta
         $id_preg = ($res)[$i]['id']; // recoge id de cada pregunta
     
-
-       
-             
-   
-    
         //consulta de tabla respuestas
        $num_resp = 'SELECT * FROM respuestas WHERE id_pregunta='.$id_preg; //numero de respuestas de una pregunta
         $sth1 = $dbh->prepare($num_resp);
@@ -94,45 +96,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $resp_text = ($res1)[$j]['texto_res'];
         $id_resp= ($res1)[$j]['id'];
         $resp_valor = ($res1)[$j]['valor'];
-       //$consulta = $_POST."['".$j."']";
-       if($opcion =="una"){
-           
+       
+       if(isset($_POST['a'])){
+           if($opcion == "una"){
         $respuestas = $_POST['a'];
         
+    }elseif($opcion == "multi"){
+
+    }else{
+        echo("Error en BD, opcion de pregunta incorrecta.");
+    }
+    print_r($respuestas);
     }
     
-        
-        /*if($_POST[$i] ==''){
-            echo("no");
-
-        }else{
-            echo("si");
-            
-        }*/
 
         } //fin del bucle para recorrer respuestas
 
-        
-       // echo(count($respuestas));
-
-
     
 }//fin del bucle de resultados
-print_r($respuestas);
+
 }else{
 echo("Ha producido un error.");
 }
-
-?>
+}else{ ?>
+    <p>Fallo de conexión. Vuelva a conectarte.</p>
+    <a href="test.html">Iniciar sesion</a> 
+<?php } ?>
 
 
             </div>
         </main>
         <footer class="colored">
-            <p>Copyright &copy; Yulia Ogarkova, 2ºDAW IES Trassierra 2021/2022</p>
+            <p>Copyright &copy; Yulia Ogarkova</p>
         </footer>
     </div>
-    <script src="scripts/header.js"></script>
+
 
 </body>
 

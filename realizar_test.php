@@ -5,12 +5,15 @@
     <title>Tarea online U2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css">
-    <!--<link rel="stylesheet" href="../css/style-for-test.css">-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" href="css/style-for-test.css">-->
 </head>
 <?php
 session_start();
 require_once('connect_db.php');
+
+//comprobamos si usuario está conectado
+
 $login = $_SESSION['usuario'];
 
 //consulta para recoger los datos de la table preguntas
@@ -70,10 +73,9 @@ switch($num_filas_oport){
                 </div>
 
                 <div class="navigation colored">
-                    <nav><a class="droplink" href="../inicio.html">inicio</a>
-                        <a class="droplink" href="#">Zona de usuario</a>
-                        <a class="droplink" href="#">Zona de administrador</a>
-                        <a class="droplink" href="#">Crear usuario</a>
+                    <nav>
+                       
+                        <a class="droplink" href="#">Crear cuenta</a>
                         <a class="droplink" href="#">Iniciar secion</a>
                         <a class="droplink" href="#">Cerrar sesion</a>
                     </nav>
@@ -86,7 +88,8 @@ switch($num_filas_oport){
             <div class="container">
             <?php if (isset($_SESSION['usuario']) === false) { ?>
 
-<p>You are not logged in. Please log in and try again.</p>
+<p>Fallo de conexión. Vuelva a conectarte.</p>
+<a href="test.html">Iniciar sesion</a>
 
 <?php } elseif($realizar_test === false){
 echo ("No tienes intentos.");

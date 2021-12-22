@@ -5,8 +5,8 @@
     <title>Tarea online U2</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css">
-    <!--<link rel="stylesheet" href="../css/style-for-test.css">-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--<link rel="stylesheet" href="css/style-for-test.css">-->
 </head>
 
 <body>
@@ -18,17 +18,15 @@
                         <h3>Desarrollo web en entorno servidor</h3>
                     </div>
                     <div>
-                        <h3>Tarea online Unidad 2</h3>
+                        <h3>Test online PHP</h3>
                         <h3>Alumna: Yulia Ogarkova, 2ºDAW IES Trassierra</h3>
                     </div>
                 </div>
 
                 <div class="navigation colored">
-                    <nav><a class="droplink" href="../inicio.html">inicio</a>
-                        <a class="droplink" href="#">Zona de usuario</a>
-                        <a class="droplink" href="administrar.php">Zona de administrador</a>
-                        <a class="droplink" href="test.html">Crear usuario</a>
-                        <a class="droplink" href="test.html">Iniciar secion</a>
+                    <nav>
+                        
+                        <a class="droplink" href="test.html">Inicio</a>
                         <a class="droplink" href="cerrar_sesion.php">Cerrar sesion</a>
                     </nav>
                 </div>
@@ -41,47 +39,56 @@
             <div class="container">
                 <?php
                     require_once('connect_db.php');
+                    // controla si hay entrada de formulario para indentificarse
+                    if(isset($_POST['user-name'])){
                     $username = $_POST['user-name'];
                     $password = $_POST['pass'];
 
+                    // comprobamos si el usuario existe en la base de datos
                     $sql = 'SELECT * FROM usuarios WHERE login=? and contrasena=?';
                     $sth = $dbh->prepare($sql);
                     $sth->execute(array($username, $password));
                     $result = $sth->fetch();
+                    
                     if (empty($result)) { 
                 ?>
-                    <p>Your username or your password is incorrect. Please try again.</p>
-                    <p>Registrate si no tienes cuenta</p>
-                    <a href="crear_usuario.php">Registrate</a>
+                    <p>Nombre o contraseña incorrectos. Vuelva a conectarse o registrate si no tienes cuenta.</p>
+                    <a href="test.html">Registrate</a>
       
-                <?php } else {
+                <?php } else { //cuando los datos introducidos son correctos, inicia la sesion
                     session_start();
                     $_SESSION['usuario'] = $username; 
                     $_SESSION['contrasena']=$password; 
-                    $nombre = $result['nombre'];}
-                    $rol = $result['rol'];
-                   if($rol=="user"){
+                    $nombre = $result['nombre']; //cogemos el nombre del usuario de la BD para saludarlo
+                    $rol = $result['rol'];// rol del usuario
+                   if($rol=="user"){ // para rol "user" disponible solo opcion para realizar test
                         $access_type = "realizar_test.php";
                         $submit_text = "Realizar test";
-                        echo("form: ".$access_type);
-                    }elseif($rol =="admin"){
+                        
+                    }elseif($rol =="admin"){ // para administrador disponible solo opcion para administrar (consultar resultados)
                         $access_type = "administrar.php";
                         $submit_text = "Administrar";
-                    }else{
+                    }else{ // cuando rol no esta establecida, no da opciones para continuar
                         $access_type="";
-                        $submit_text="No tienes acceso";
-                    }
+                        $submit_text="No tienes acceso. Pon en contacto con la administración.";
+                    } 
                 ?>
-            <p>Bienvenido, </p><strong><?php echo ($nombre)?> </strong>
-                <a href="<?php echo($access_type) ?>"><?php echo($submit_text) ?></a>        
+            <p>Bienvenido, </p><strong class="strong"><?php echo ($nombre)?> </strong>
+                <div><a href="<?php echo($access_type) ?>"><?php echo($submit_text) ?></a></div>  <!-- enlace para realizar test o administrar, dependiendo del rol de usuario -->
+               <?php }}else{
+                   echo ("Error de identificación del usuario.");
+                   ?>
+                   <div><a href="test.html">Iniciar sesion</a></div> <?php
+               } ?> 
+                        
            
             </div>
         </main>
         <footer class="colored">
-            <p>Copyright &copy; Yulia Ogarkova, 2ºDAW IES Trassierra 2021/2022</p>
+            <p>Copyright &copy; </p>
         </footer>
     </div>
-    <script src="scripts/header.js"></script>
+    
 
 </body>
 
